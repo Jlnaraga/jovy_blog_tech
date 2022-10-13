@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const withAuth = require('../utils/authorize.js');
-const { User, Comment, Post, Post } = require('../models');
+const withAuth = require('../utils/auth');
+const { User, Comment, Post } = require('../models');
 const sequelize = require('../config/connection.js');
 const { beforeFindAfterExpandIncludeAll } = require('../models/user.js');
 const { restart } = require('nodemon');
@@ -26,44 +26,44 @@ router.get('/login', async (req, res) => {
   });
 })
 
-// renders post find all
-router.get('/', (req, res) => {
-    console.log(req.session);
+// // renders post find all
+// router.get('/', (req, res) => {
+//     console.log(req.session);
 
-    post.findAll({
-        attributes: [
-            'id',
-            'created_at',
-            'title',
-            'post_text',
-        ],
-        include: [{
-            model: Comment,
-            attributes:[
-                'id',
-                'created_at',
-                'title',
-                'post_text',
-                'comment_text'
-            ],
-            include: {
-                model:user,
-                attributes: ['username']
-            }
-        }]
-    })
-    .then (dbPostData => {
-      const post = dbPostData.map (post => post.get({plain: true}));
-      res.render('homepage',{
-        post,
-        loggedIn: req.session.loggedIn
-      })
-      .catch(error => {
-        console.log(error);
-        res.status(500).json(err);
-      })
-    })
-  });
+//     post.findAll({
+//         attributes: [
+//             'id',
+//             'created_at',
+//             'title',
+//             'post_text',
+//         ],
+//         include: [{
+//             model: Comment,
+//             attributes:[
+//                 'id',
+//                 'created_at',
+//                 'title',
+//                 'post_text',
+//                 'comment_text'
+//             ],
+//             include: {
+//                 model:user,
+//                 attributes: ['username']
+//             }
+//         }]
+//     })
+//     .then (dbPostData => {
+//       const post = dbPostData.map (post => post.get({plain: true}));
+//       res.render('homepage',{
+//         post,
+//         loggedIn: req.session.loggedIn
+//       })
+//       .catch(error => {
+//         console.log(error);
+//         res.status(500).json(err);
+//       })
+//     })
+//   });
 // end renders post
 
 // renders post find one

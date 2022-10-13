@@ -5,7 +5,7 @@ const exphbs = require('express-handlebars');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const routes = require('./controllers');
-const helper = require('./utils/helper.js');
+const helper = require('./utils/helpers');
 const sequelize = require('./config/connection');
 
 require('dotenv').config();
@@ -37,6 +37,8 @@ app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
