@@ -5,7 +5,7 @@ const {
     Comment,
     Post,
     User
-} = require('../../models');
+} = require('../models');
 
 const getAllPosts = async () => {
     try {
