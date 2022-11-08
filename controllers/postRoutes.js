@@ -154,7 +154,7 @@ router.get("/:id", async (req, res) => {
 
         const post = await getPostById(req.params.id);
         
-        res.render('post', {
+        res.render('singlePost', {
             loggedIn: req.session.loggedIn,
             loggedInUserData: req.session.loggedInUserData,
             pageTitle: 'Post',
