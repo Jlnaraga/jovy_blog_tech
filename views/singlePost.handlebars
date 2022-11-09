@@ -17,6 +17,10 @@
         
             <h5>Comments</h5>
 
+            {{#if loggedIn}}
+                {{> comment postId=post.id}}
+            {{/if}}
+
             {{#each post.comments as |content|}}
                 
                 <small class="text-muted">By <strong>{{content.user.username}}</strong> |  <strong>{{format_time content.createdAt}}</strong> 

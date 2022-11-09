@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <h3 class="text-muted">Dashboard</h3>
+        <hr>
+        {{#if loggedIn}}
+            <a type="button" class="btn btn-outline-dark" href="/posts/create">New Post</a>
+        {{/if}}
+    </div>
+    <div class="row">
+
+        {{#each posts as |post|}}
+            {{> blog post=post edit=true}}
+        {{/each}}
+        
+    </div>
+  </div>
+</div>
