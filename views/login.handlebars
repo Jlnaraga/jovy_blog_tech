@@ -1,16 +1,16 @@
 <div class="container">
     <div class="card bg-white">
         <div class="card-body p-5">
-        <form class="mb-3 mt-md-4">
+        <form id="form-login" class="mb-3 mt-md-4">
             <h2 class="fw-bold mb-2 text-uppercase ">Tech Blog</h2>
             <p class=" mb-5">Please enter your login and password!</p>
             <div class="mb-3">
-            <label for="email" class="form-label ">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder="name@example.com">
+            <label for="username" class="form-label ">Username</label>
+            <input class="form-control" id="username" name="username" placeholder="Enter your Username">
             </div>
             <div class="mb-3">
             <label for="password" class="form-label ">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="*******">
+            <input type="password" class="form-control" id="password" name="password" placeholder="*******">
             </div>
             <div class="d-grid">
             <button class="btn btn-outline-dark" type="submit">Login</button>
@@ -24,3 +24,5 @@
         </div>
     </div>
 </div>
+
+<script src="/js/login.js"></script>

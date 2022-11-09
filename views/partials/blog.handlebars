@@ -1,13 +1,21 @@
 <div class="panel mb-3 p-3">
     <div class="panel-body">
     
-        <h4>{{post.title}}</h4>
+        {{#if edit}}
+            <h4>
+                <a href="/posts/update/{{post.id}}" style="text-decoration: none;">{{post.title}} <i class="fa fa-pencil"></i></a>
+            </h4>
+        {{else}}
+            <h4>{{post.title}}</h4>
+        {{/if}}
+        
         <small class="text-muted">By <strong>{{post.user.username}}</strong> |  <strong>{{format_time post.createdAt}}</strong>  | {{post.comments.length}} comments</small>
         
         <p class="m-top-sm m-bottom-sm">
             {{post.content}}
         </p>
+
         <a href="/posts/{{post.id}}"><i class="fa fa-angle-double-right"></i> Continue reading</a>
-        
+    
     </div>
 </div> 

@@ -137,7 +137,7 @@ router.delete("/delete/:id", async (req, res) => {
 
 router.get("/create", async (req, res) => {
     try {
-        res.render('post-create', {
+        res.render('createPost', {
             loggedIn: req.session.loggedIn,
             loggedInUserData: req.session.loggedInUserData,
             pageTitle: 'Create New Post',
@@ -170,7 +170,7 @@ router.get("/update/:id", async (req, res) => {
     try {
         const post = await getPostById(req.params.id);
         console.log(post.get({ plain: true }))
-        res.render('post-edit', {
+        res.render('editPost', {
             loggedIn: req.session.loggedIn,
             loggedInUserData: req.session.loggedInUserData,
             pageTitle: 'Edit Post',
